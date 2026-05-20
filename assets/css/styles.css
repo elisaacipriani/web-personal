@@ -629,7 +629,7 @@ h1 {
 .who-section {
   align-items: start;
   column-gap: var(--gutter);
-  padding-top: 18px;
+  padding-top: clamp(140px, 16vw, 260px);
 }
 
 .section-number {
