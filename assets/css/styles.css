@@ -1233,11 +1233,20 @@ li {
 }
 
 .savia-series {
+  position: relative;
+  padding-block: 0;
+  background: #000000;
+  height: calc(100vw * 1047 / 6320);
+  overflow: hidden;
+  line-height: 0;
+}
+
+.savia-page > section.savia-series {
   padding-block: 0;
 }
 
-.savia-series h1 {
-  grid-column: 2 / span 10;
+html[lang="en"] .savia-series {
+  height: calc(100vw * 1047 / 5760);
 }
 
 .savia-two-up {
@@ -1261,6 +1270,7 @@ li {
   height: auto;
   margin-right: calc(var(--pad) * -1);
   margin-left: calc(var(--pad) * -1);
+  transform: translateY(-26.58%);
 }
 
 .savia-system-frame {
@@ -2598,7 +2608,7 @@ html[lang="es"] .migrar-mindmap-labels {
 
   .journey-section h2 {
     margin-bottom: 8px;
-    font-size: clamp(46px, 18vw, 74px);
+    font-size: clamp(42px, 16vw, 64px);
     overflow-wrap: normal;
     white-space: nowrap;
   }
@@ -2618,15 +2628,23 @@ html[lang="es"] .migrar-mindmap-labels {
 
   .cv-block,
   .info-block {
-    grid-template-columns: 1fr;
-    row-gap: 22px;
+    grid-template-columns: minmax(104px, 0.38fr) minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 0;
+    align-items: start;
   }
 
   .cv-block h2,
+  .info-block h2 {
+    grid-column: 1;
+    position: sticky;
+    top: calc(var(--home-header) + 14px);
+    color: rgba(0, 0, 0, 0.58);
+  }
+
   .cv-block dl,
-  .info-block h2,
   .info-section .info-block:not(.wide) ul {
-    grid-column: 1 / -1;
+    grid-column: 2;
   }
 
   .cv-block dl,
@@ -2634,9 +2652,16 @@ html[lang="es"] .migrar-mindmap-labels {
     margin-right: 0;
   }
 
+  .cv-block dl {
+    display: grid;
+    gap: 0;
+  }
+
   .cv-block dl > div {
-    grid-template-columns: 1fr;
-    row-gap: 8px;
+    display: grid;
+    grid-template-columns: minmax(76px, 0.72fr) minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 0;
     padding-bottom: 20px;
   }
 
@@ -2647,6 +2672,11 @@ html[lang="es"] .migrar-mindmap-labels {
   .info-section .info-block:not(.wide) ul {
     grid-template-columns: 1fr;
     row-gap: 4px;
+  }
+
+  .info-section .info-block:not(.wide) li {
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
   }
 
   .text-pair p,
@@ -2665,7 +2695,7 @@ html[lang="es"] .migrar-mindmap-labels {
   .cv-block h2,
   .info-block h2,
   .who-section h2 {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.1;
   }
 
@@ -2734,6 +2764,10 @@ html[lang="es"] .migrar-mindmap-labels {
 
   .savia-page > section {
     padding-block: 76px;
+  }
+
+  .savia-page > section.savia-series {
+    padding-block: 0;
   }
 
   .savia-page h1,
