@@ -1325,9 +1325,9 @@ main {
 .project-subtitle {
   max-width: 780px;
   margin: 0 0 0 var(--project-text-offset);
-  font-size: clamp(34px, 3vw, 54px);
-  font-weight: 300;
-  line-height: 0.94;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1;
   text-transform: none;
 }
 
@@ -1422,8 +1422,11 @@ main {
   .project-hero h1,
   .project-subtitle {
     max-width: 100%;
-    font-size: clamp(42px, 9vw, 68px);
     overflow-wrap: anywhere;
+  }
+
+  .project-subtitle {
+    font-size: 25px;
   }
 
   .project-data {
