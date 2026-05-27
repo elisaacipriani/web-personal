@@ -3114,13 +3114,18 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   align-items: start;
 }
 
-.hilvan-artisans-heading img {
+.hilvan-artisans-title-mark {
   width: min(230px, 100%);
   height: auto;
 }
 
-.hilvan-artisans-heading h1 {
+.hilvan-artisans-title-caption {
   margin: 0;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
 
 .hilvan-artisans-top {
@@ -3237,15 +3242,16 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
 
 .hilvan-artisans-number {
   display: block;
-  height: auto;
+  width: auto;
+  height: min(52px, 10.5vw);
 }
 
 .hilvan-artisans-number-6 {
-  width: min(54px, 100%);
+  width: auto;
 }
 
 .hilvan-artisans-number-12 {
-  width: min(77px, 100%);
+  width: auto;
 }
 
 .hilvan-artisans-poster-item p {
@@ -3393,6 +3399,17 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   grid-column: auto;
   width: 100%;
   height: auto;
+}
+
+.hilvan-shirt-video-grid,
+.hilvan-cyanotype-grid {
+  align-items: stretch;
+}
+
+.hilvan-video-section .hilvan-shirt-video-grid video,
+.hilvan-video-section .hilvan-cyanotype-grid img {
+  height: 100%;
+  object-fit: cover;
 }
 
 .hilvan-video-full :where(video, img) {
@@ -4420,7 +4437,8 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   .migrar-copy-section h1,
   .migrar-video-title,
   .hilvan-page h1 {
-    font-size: 25px;
+    font-size: 18px;
+    line-height: 1.08;
   }
 
   .hilvan-page > section {
@@ -4490,9 +4508,73 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
     max-width: 433px;
   }
 
-  .hilvan-artisans-heading img {
-    width: min(360px, 70vw);
+  .hilvan-artisans-title-mark {
+    width: min(230px, 46vw);
     max-width: none;
+    height: auto;
+  }
+
+  .hilvan-artisans-title-caption {
+    font-size: 18px;
+    line-height: 1.08;
+  }
+
+  .hilvan-artisans-top,
+  .hilvan-artisans-bottom {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gutter);
+  }
+
+  .hilvan-artisans-bottom {
+    margin-top: 92px;
+  }
+
+  .hilvan-artisans-poster-block {
+    margin-top: 110px;
+    gap: 142px;
+  }
+
+  .hilvan-artisans-poster-item {
+    width: min(320px, 46vw);
+  }
+
+  .hilvan-graphic-identity-image {
+    width: 100vw !important;
+    max-width: none;
+    margin-right: calc(var(--pad) * -1);
+    margin-left: calc(var(--pad) * -1);
+  }
+
+  .hilvan-video-section .hilvan-blue-dresses-image {
+    width: min(360px, 72vw);
+    margin-block: 44svh 52svh;
+  }
+
+  .hilvan-cyanotype-grid {
+    grid-template-columns: 1fr;
+    gap: var(--gutter);
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .hilvan-video-section .hilvan-cyanotype-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hilvan-fanzine-copy {
+    margin-top: 0;
+  }
+
+  .hilvan-stamp-animation {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(300px, 72vw);
+    margin-top: 34px;
   }
 
   .hilvan-project-footer {
@@ -4507,9 +4589,33 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   }
 
   .hilvan-subfooter-instagram,
+  .hilvan-subfooter-label,
   .hilvan-subfooter-name {
+    font-size: 13px !important;
+    line-height: 1;
+  }
+
+  .hilvan-subfooter-instagram {
+    grid-column: 3 / -1;
+    justify-self: end;
+    margin-top: 96px;
+    text-align: right;
+  }
+
+  .hilvan-subfooter-label {
+    grid-column: 1 / span 2;
     justify-self: start;
+    align-self: end;
+    margin-top: 8px;
     text-align: left;
+  }
+
+  .hilvan-subfooter-name {
+    grid-column: 3 / -1;
+    justify-self: end;
+    align-self: end;
+    margin-top: 8px;
+    text-align: right;
   }
 
   .migrar-intro-section {
