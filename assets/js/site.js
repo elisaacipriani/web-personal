@@ -16,7 +16,7 @@ function setupCustomCursor() {
     const target = event.target;
     const isImageArea = target instanceof Element && target.closest(".hero, img, video, .statement-portraits");
     const isDarkProject = document.body.classList.contains("migrar-project");
-    const keepsDarkCursor = document.body.classList.contains("encanto-project");
+    const keepsDarkCursor = document.body.classList.contains("encanto-project") || document.body.classList.contains("hilvan-project");
     cursor.classList.toggle("is-light", isDarkProject || (!keepsDarkCursor && Boolean(isImageArea)));
   });
 
@@ -116,6 +116,7 @@ const copy = {
     "works.cat.encanto": "Objeto / Instalación",
     "works.cat.hilvan": "Textil / Proceso",
     "works.cat.diary": "Diseño editorial / Tatuaje",
+    "works.project.diary": "Diario de una antología de tatuajes",
     "arts.title": "Arte y fotografía",
     "arts.note": "Series, imágenes y archivos visuales.",
     "arts.category": "arte y fotografía",
@@ -190,6 +191,7 @@ const copy = {
     "works.cat.encanto": "Object / Installation",
     "works.cat.hilvan": "Textile / Process",
     "works.cat.diary": "Illustration / Photography",
+    "works.project.diary": "Diary of a Tattoo Anthology",
     "arts.title": "Arts & Photography",
     "arts.note": "Series, images and visual archives.",
     "arts.category": "arts & photography",
