@@ -2057,6 +2057,11 @@ html[lang="es"] .savia-graphic-card {
   backdrop-filter: none;
 }
 
+.migrar-project .site-header :where(.brand, .site-nav a, .language-switch a):hover,
+.migrar-project .site-header :where(.brand, .site-nav a, .language-switch a):focus-visible {
+  color: #ffffff;
+}
+
 .migrar-project .site-footer {
   color: #ffffff;
   border-top: 0;
@@ -2158,23 +2163,20 @@ html[lang="es"] .savia-graphic-card {
 }
 
 .migrar-subtitle {
-  display: none;
+  display: block;
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 2;
-  width: 100%;
+  width: min(780px, 100%);
   padding: 8px 0;
   background: #000000;
   color: #ffffff;
-  font-size: clamp(18px, 2vw, 34px);
+  font-size: clamp(20px, 1.9vw, 32px);
   font-weight: 200;
   line-height: 1.12;
   letter-spacing: 0;
-}
-
-html[lang="es"] .migrar-subtitle {
-  display: block;
+  white-space: nowrap;
 }
 
 .migrar-figure {
@@ -3050,7 +3052,7 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   width: 540px;
   max-width: none;
   height: auto;
-  margin: 138px 0 0 -165px;
+  margin: 176px 0 0 -165px;
 }
 
 .hilvan-intro-copy {
@@ -3061,7 +3063,7 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   gap: 52px;
   width: 433px;
   max-width: none;
-  margin: 138px 0 0;
+  margin: 176px 0 0;
 }
 
 .hilvan-intro-copy p {
@@ -4425,6 +4427,20 @@ h3,
 .migrar-subfooter-label {
   font-family: "Neue Haas Grotesk Display", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 400 !important;
+}
+
+.migrar-subtitle {
+  width: min(780px, 100%) !important;
+  max-width: 780px !important;
+  font-size: clamp(19px, 1.7vw, 29px) !important;
+  font-weight: 200 !important;
+}
+
+.savia-subtitle {
+  width: min(560px, 100%) !important;
+  max-width: 560px !important;
+  font-size: clamp(23px, 2.45vw, 44px) !important;
+  font-weight: 200 !important;
 }
 
 .hero-copy h1,
