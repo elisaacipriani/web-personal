@@ -8,6 +8,7 @@
   --home-header: 54px;
   --gutter: clamp(16px, 2vw, 28px);
   --section-y: clamp(84px, 10vw, 136px);
+  --project-meta-line-gap: 90px;
   --body: 16px;
   --small: 16px;
   --thin: 220;
@@ -629,11 +630,12 @@ h1 {
   color: #000000;
   font-size: 20px;
   font-weight: 200;
-  line-height: 1.08;
+  line-height: 1.18;
 }
 
 .project-index-page .project-index-category::after {
   display: block;
+  margin-top: 4px;
   content: "/ Learn More";
   color: #8f8f8f;
 }
@@ -928,6 +930,10 @@ li {
   padding-top: clamp(72px, 8vw, 120px);
 }
 
+.home-page .info-section {
+  border-bottom: 0;
+}
+
 .info-block + .info-block {
   margin-top: clamp(72px, 8vw, 120px);
 }
@@ -1201,9 +1207,14 @@ li {
 }
 
 .savia-hero {
+  position: relative;
   min-height: calc(100svh - var(--home-header));
   align-content: center;
   padding-bottom: clamp(18px, 3vw, 42px);
+}
+
+.savia-hero::after {
+  display: none;
 }
 
 .savia-title-block {
@@ -1238,6 +1249,7 @@ li {
 }
 
 .project-side-meta {
+  position: relative;
   display: grid;
   gap: 0;
   margin: 0;
@@ -1266,12 +1278,26 @@ li {
   align-self: end;
 }
 
+.savia-hero-meta::after,
+.encanto-hero-meta::after,
+.migrar-hero-meta::after,
+.hilvan-hero-meta::after,
+.diary-data::after {
+  position: absolute;
+  right: calc(var(--pad) * -1);
+  top: calc(100% + var(--project-meta-line-gap));
+  width: 100vw;
+  height: 1px;
+  content: "";
+  background: var(--line);
+}
+
 .savia-intro {
   grid-column: 2 / span 3;
   align-self: end;
   width: min(433px, 100%);
   max-width: 433px;
-  margin-top: clamp(42px, 8vw, 110px);
+  margin-top: clamp(132px, 15vw, 190px);
 }
 
 .savia-hero-render {
@@ -1719,7 +1745,7 @@ html[lang="es"] .savia-graphic-card {
 .encanto-copy-section {
   align-content: start;
   padding-block: clamp(72px, 8vw, 126px);
-  border-top: 1px solid var(--line);
+  border-top: 0;
 }
 
 .encanto-copy {
@@ -2033,7 +2059,7 @@ html[lang="es"] .savia-graphic-card {
 
 .migrar-project .site-footer {
   color: #ffffff;
-  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-top: 0;
   background: #000000;
 }
 
@@ -2072,6 +2098,7 @@ html[lang="es"] .savia-graphic-card {
 }
 
 .migrar-hero {
+  --migrar-hero-lower-shift: clamp(118px, 10vw, 150px);
   min-height: calc(100svh - var(--home-header));
   align-content: center;
   padding-block: clamp(96px, 10vw, 160px);
@@ -2085,6 +2112,18 @@ html[lang="es"] .savia-graphic-card {
   position: relative;
 }
 
+.migrar-title-block::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 46%;
+  height: clamp(32px, 4vw, 64px);
+  content: "";
+  background: #000000;
+  pointer-events: none;
+}
+
 .migrar-hero-meta {
   grid-column: 9 / -1;
   grid-row: 1;
@@ -2092,7 +2131,13 @@ html[lang="es"] .savia-graphic-card {
   margin-top: clamp(34px, 4vw, 72px);
 }
 
+.migrar-hero-meta::after {
+  background: rgba(255, 255, 255, 0.28);
+}
+
 .migrar-title-image {
+  position: relative;
+  z-index: 0;
   display: block;
   width: 100%;
   height: auto;
@@ -2109,6 +2154,7 @@ html[lang="es"] .savia-graphic-card {
   font-weight: 200;
   line-height: 1.08;
   letter-spacing: 0.04em;
+  transform: translateY(var(--migrar-hero-lower-shift));
 }
 
 .migrar-subtitle {
@@ -2116,6 +2162,7 @@ html[lang="es"] .savia-graphic-card {
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 2;
   width: 100%;
   padding: 8px 0;
   background: #000000;
@@ -2165,6 +2212,7 @@ html[lang="es"] .migrar-subtitle {
   grid-row: 2 / span 2;
   align-self: start;
   min-height: clamp(190px, 24vw, 360px);
+  transform: translateY(var(--migrar-hero-lower-shift));
 }
 
 .migrar-figure-1 {
@@ -2650,8 +2698,9 @@ html[lang="es"] .migrar-subtitle {
   grid-row: 3;
   display: block;
   width: clamp(34px, 4vw, 72px);
-  margin-top: clamp(118px, 10vw, 170px);
+  margin-top: clamp(238px, 18vw, 320px);
   margin-left: clamp(230px, 17vw, 360px);
+  transform: translateY(var(--migrar-hero-lower-shift));
 }
 
 .migrar-intro-projection {
@@ -2940,11 +2989,16 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
 }
 
 .hilvan-hero {
+  position: relative;
   min-height: 0;
   align-content: start;
   row-gap: clamp(34px, 5vw, 78px);
   padding-top: 0;
-  padding-bottom: clamp(42px, 6vw, 96px);
+  padding-bottom: clamp(56px, 7vw, 110px);
+}
+
+.hilvan-hero::after {
+  display: none;
 }
 
 .hilvan-page > .hilvan-hero {
@@ -2981,8 +3035,10 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
 .hilvan-hero-meta {
   grid-column: 9 / -1;
   grid-row: 3;
+  position: relative;
+  z-index: 2;
   align-self: start;
-  margin-top: -114px;
+  margin-top: -116px;
 }
 
 .hilvan-nature-triangle {
@@ -2994,7 +3050,7 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   width: 540px;
   max-width: none;
   height: auto;
-  margin: 86px 0 0 -165px;
+  margin: 138px 0 0 -165px;
 }
 
 .hilvan-intro-copy {
@@ -3005,7 +3061,7 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   gap: 52px;
   width: 433px;
   max-width: none;
-  margin: 86px 0 0;
+  margin: 138px 0 0;
 }
 
 .hilvan-intro-copy p {
@@ -3379,22 +3435,23 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
 .diary-hero {
   min-height: calc(100svh - var(--home-header));
   align-content: end;
-  padding-block: clamp(96px, 10vw, 160px) clamp(18px, 3vw, 42px);
-  border-bottom: 1px solid var(--line);
+  padding-block: clamp(96px, 10vw, 160px) clamp(56px, 7vw, 110px);
+  border-bottom: 0;
 }
 
 .diary-hero h1 {
   grid-column: 1 / span 7;
   max-width: 1040px;
   font-size: 84px;
-  font-weight: 200;
-  line-height: 0.9;
+  font-weight: 200 !important;
+  line-height: 0.94;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .diary-data {
   grid-column: 9 / -1;
+  position: relative;
   align-self: end;
   display: grid;
   gap: 0;

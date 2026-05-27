@@ -15,9 +15,10 @@ function setupCustomCursor() {
 
     const target = event.target;
     const isImageArea = target instanceof Element && target.closest(".hero, img, video, .statement-portraits");
+    const needsDarkCursor = target instanceof Element && target.closest(".is-savia-index .project-index-thumb, .is-diary-index .project-index-thumb");
     const isDarkProject = document.body.classList.contains("migrar-project");
     const keepsDarkCursor = document.body.classList.contains("encanto-project") || document.body.classList.contains("hilvan-project");
-    cursor.classList.toggle("is-light", isDarkProject || (!keepsDarkCursor && Boolean(isImageArea)));
+    cursor.classList.toggle("is-light", isDarkProject || (!keepsDarkCursor && !needsDarkCursor && Boolean(isImageArea)));
   });
 
   document.addEventListener("mouseleave", () => cursor.classList.remove("is-visible"));
@@ -115,7 +116,7 @@ const copy = {
     "works.cat.migrar": "Territorio / Investigación",
     "works.cat.encanto": "Objeto / Instalación",
     "works.cat.hilvan": "Textil / Proceso",
-    "works.cat.diary": "Diseño editorial / Tatuaje",
+    "works.cat.diary": "Diseño Editorial / Tatuaje",
     "works.project.diary": "Diario de una antología de tatuajes",
     "arts.title": "Arte y fotografía",
     "arts.note": "Series, imágenes y archivos visuales.",
@@ -138,15 +139,15 @@ const copy = {
     "journey.copy4": "A través de sus diseños expresa libertad y creatividad, dando especial valor a la dimensión conceptual de los proyectos. Le interesa conectar el diseño con las artes visuales y plásticas, el cine, la fotografía y la música.",
     "experience.title": "Experiencia",
     "experience.date0": "2026 - Presente",
-    "experience.item0": "Visual Identity and Editorial Designer at Roomie Design.",
-    "experience.item1": "Freelance visual communication, graphic design, and social media content for Rosalia Iturbe's poetry anthology Las Cosas Celestes.",
-    "experience.item2": "Freelance illustration and book design for Rosalia Iturbe's poetry anthology Peces Plateados.",
-    "experience.item3": "Freelance graphic design and social media management for the book Prufrock: La canción que no termina for Fabian Casas' Taller Nomade Team.",
+    "experience.item0": "Diseñadora de identidad visual y editorial en Roomie Design.",
+    "experience.item1": "Comunicación visual, diseño gráfico y contenido para redes freelance para la antología de poesía Las Cosas Celestes de Rosalía Iturbe.",
+    "experience.item2": "Ilustración y diseño de libro freelance para la antología de poesía Peces Plateados de Rosalía Iturbe.",
+    "experience.item3": "Diseño gráfico y gestión de redes freelance para el libro Prufrock: La canción que no termina del equipo Taller Nomade de Fabián Casas.",
     "experience.item4": "Hi Its Mora - Fundadora y Directora Creativa. Proyecto independiente de joyería: anillos hechos a mano, dirección de arte, fotografía de producto, contenido para redes y desarrollo de marca.",
     "education.title": "Educación",
     "education.item1": "Licenciatura en Diseño - Universidad Torcuato Di Tella",
-    "education.item2": "Programa de intercambio - Universität zu Köln Business School, Alemania",
-    "education.item3": "Programa de intercambio - Durban Girls College, Sudáfrica",
+    "education.item2": "Programa de Intercambio - Universität zu Köln Business School, Alemania",
+    "education.item3": "Programa de Intercambio - Durban Girls College, Sudáfrica",
     "education.item4": "St. George's College, Quilmes. Cambridge IGCSE & Bachillerato Internacional",
     "languages.title": "Idiomas",
     "languages.item1": "Español (nativo)",

@@ -5,6 +5,7 @@
   --line: rgba(0, 0, 0, 0.16);
   --soft: rgba(0, 0, 0, 0.035);
   --pad: clamp(16px, 3vw, 36px);
+  --mobile-header-height: 54px;
   --paragraph-width: 460px;
   --paragraph-size: 14px;
   --paragraph-line: 1.35;
@@ -12,14 +13,11 @@
   --project-text-width: 433px;
   --project-text-offset: clamp(14px, 2vw, 34px);
   --project-text-stack-gap: 28px;
-  --image-blur-filter: blur(13px) saturate(0.64) contrast(0.9) brightness(1.08);
-  --image-clear-filter: blur(0) saturate(1) contrast(1.02);
-  --image-veil: linear-gradient(rgba(242, 246, 242, 0.58), rgba(235, 239, 235, 0.46));
-  --ink-filter: url("#ink-spread");
-  --ink-shadow:
-    0.08px 0.04px 0 rgba(0, 0, 0, 0.34),
-    -0.05px 0.08px 0 rgba(0, 0, 0, 0.18),
-    0 0 0.22px rgba(0, 0, 0, 0.24);
+  --image-blur-filter: none;
+  --image-clear-filter: none;
+  --image-veil: transparent;
+  --ink-filter: none;
+  --ink-shadow: none;
 }
 
 @font-face {
@@ -27,6 +25,14 @@
   src: url("../../fonts/neue-haas-display-thin.woff2");
   font-style: normal;
   font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../../fonts/neue-haas-display-thin.woff2");
+  font-style: normal;
+  font-weight: 35;
   font-display: swap;
 }
 
@@ -67,7 +73,7 @@ body {
   font-weight: 300;
   line-height: 1.35;
   letter-spacing: 0;
-  text-shadow: var(--ink-shadow);
+  text-shadow: none;
   -webkit-font-smoothing: antialiased;
   font-synthesis: none;
 }
@@ -107,7 +113,8 @@ body {
   .contact-small,
   .site-footer span
 ) {
-  filter: var(--ink-filter);
+  filter: none;
+  text-shadow: none;
 }
 
 a {
@@ -201,17 +208,20 @@ h2 {
 }
 
 .site-header {
-  position: sticky;
+  position: absolute;
   top: 0;
+  right: 0;
+  left: 0;
   z-index: 10;
   display: grid;
   grid-template-columns: minmax(110px, 1fr) auto auto;
-  align-items: baseline;
+  align-items: center;
   gap: 28px;
-  padding: 14px var(--pad);
-  border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.86);
-  backdrop-filter: blur(8px);
+  min-height: var(--mobile-header-height);
+  padding: 0 var(--pad);
+  border-bottom: 0;
+  background: transparent;
+  backdrop-filter: none;
   text-transform: uppercase;
 }
 
@@ -618,23 +628,45 @@ main {
 }
 
 .site-footer {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 18px var(--pad);
-  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter, 28px);
+  position: relative;
+  min-height: 54px;
+  align-items: center;
+  padding: 14px var(--pad) 12px;
+  border-top: 0;
+  background: #ffffff;
+  color: #000000;
+  font-size: 14px;
   text-transform: uppercase;
 }
 
-.footer-brand {
+.footer-social {
+  grid-column: 1 / span 6;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  gap: clamp(20px, 2vw, 34px);
+  align-items: baseline;
 }
 
 .footer-rights {
-  font-size: 10px;
+  grid-column: 1 / span 6;
+  align-self: center;
+  color: #9a9a9a;
+  font-size: 14px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.footer-top {
+  grid-column: 12;
+  justify-self: end;
+  align-self: center;
+  display: block;
+  width: 56px;
+  height: 56px;
+  background: url("../../footer/flecha-footer.png") center / 18px 27px no-repeat;
+  transform: translateY(-11px);
 }
 
 .project-page {
@@ -675,7 +707,7 @@ main {
   min-height: 50vh;
   align-items: end;
   padding-top: clamp(140px, 18vh, 230px);
-  padding-bottom: 8px;
+  padding-bottom: clamp(56px, 7vw, 110px);
 }
 
 .project-hero,
@@ -1987,4 +2019,39 @@ main {
 .project-page .sequence-hint:focus-within img {
   filter: none;
   transform: none;
+}
+
+.project-page :where(
+  .project-text,
+  .project-text-intro,
+  .project-text-large,
+  .project-text-secondary,
+  .surreal-childhood-text,
+  .isla-paraiso-text,
+  .azul-text,
+  .dreaming-text
+) {
+  width: min(433px, 100%);
+  max-width: 433px;
+}
+
+.project-page :where(
+  .project-text,
+  .project-text-intro,
+  .project-text-large,
+  .project-text-secondary,
+  .surreal-childhood-text,
+  .isla-paraiso-text,
+  .azul-text,
+  .dreaming-text
+) p {
+  width: 100%;
+  max-width: 433px;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 35;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-shadow: none;
+  filter: none;
 }
