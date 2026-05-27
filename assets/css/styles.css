@@ -154,6 +154,16 @@ main > section,
   transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
 }
 
+.home-page .site-header {
+  color: #ffffff;
+  background: transparent;
+}
+
+.home-page .site-header :where(.brand, .site-nav a, .language-switch a):hover,
+.home-page .site-header :where(.brand, .site-nav a, .language-switch a):focus-visible {
+  color: #ffffff;
+}
+
 .brand {
   color: inherit;
   text-transform: uppercase;
@@ -276,9 +286,9 @@ main > section,
 
 .hero-image {
   position: absolute;
-  inset: var(--home-header) 0 0;
+  inset: 0;
   width: 100%;
-  height: calc(100% - var(--home-header));
+  height: 100%;
   max-width: none;
   max-height: none;
   min-height: 0;
@@ -3636,9 +3646,9 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
 
   .hero-image {
     position: absolute;
-    inset: var(--home-header) 0 0;
+    inset: 0;
     width: 100%;
-    height: calc(100% - var(--home-header));
+    height: 100%;
     max-width: none;
     max-height: none;
     margin-top: 0;
