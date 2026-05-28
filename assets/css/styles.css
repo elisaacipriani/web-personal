@@ -2237,12 +2237,15 @@ html[lang="es"] .savia-graphic-card {
   background: rgba(255, 255, 255, 0.28);
 }
 
-.migrar-title-image {
+.migrar-title-text {
   position: relative;
   z-index: 0;
-  display: block;
-  width: 100%;
-  height: auto;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(128px, 13.9vw, 204px);
+  font-weight: 200 !important;
+  line-height: 0.86;
+  letter-spacing: 0;
 }
 
 .migrar-hero-intro {
@@ -4367,9 +4370,17 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   .savia-hero {
     min-height: auto;
     row-gap: 38px;
+    padding-block: 0 76px !important;
   }
 
-  .savia-title-block,
+  .savia-title-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100svh;
+    margin-top: 0;
+  }
+
   .savia-intro {
     margin-top: 0;
   }
@@ -4397,6 +4408,35 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
 
   .savia-hero-render-mobile {
     display: block;
+  }
+
+  .encanto-hero {
+    min-height: auto;
+    padding-block: 0 76px !important;
+  }
+
+  .encanto-title-image {
+    align-self: center;
+    width: calc(100vw - (var(--pad) * 2)) !important;
+    max-width: calc(100vw - (var(--pad) * 2)) !important;
+    height: auto;
+    margin-block: auto;
+  }
+
+  .encanto-hero::before {
+    display: block;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-height: 100svh;
+    content: "";
+  }
+
+  .encanto-title-image {
+    grid-row: 1;
+  }
+
+  .encanto-hero-meta {
+    grid-row: 2;
   }
 
   .savia-series img {
@@ -4647,6 +4687,13 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
     padding-block: 76px;
   }
 
+  .migrar-hero {
+    min-height: auto;
+    align-content: start;
+    row-gap: 0;
+    padding-block: 0 76px;
+  }
+
   .migrar-mindmap {
     padding-block: 0;
   }
@@ -4683,6 +4730,64 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   .hilvan-page h1 {
     font-size: 18px;
     line-height: 1.08;
+  }
+
+  .migrar-title-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-row: auto;
+    width: 100%;
+    min-height: 100svh;
+    height: auto;
+  }
+
+  .migrar-title-block::after {
+    display: none;
+  }
+
+  .migrar-title-text {
+    font-size: clamp(96px, 27vw, 132px);
+    line-height: 0.86;
+  }
+
+  .migrar-subtitle {
+    position: static;
+    width: 100% !important;
+    max-width: 433px !important;
+    margin-top: 12px;
+    padding: 0;
+    background: transparent;
+    font-size: 18px !important;
+    line-height: 1.08;
+    white-space: normal;
+  }
+
+  .migrar-hero-meta {
+    grid-row: auto;
+    align-self: start;
+    margin-top: 68px;
+  }
+
+  .migrar-hero-meta::after {
+    position: static;
+    display: block;
+    width: calc(100% + (var(--pad) * 2));
+    margin-top: 44px;
+    margin-left: calc(var(--pad) * -1);
+  }
+
+  .migrar-hero-intro {
+    grid-row: auto;
+    justify-self: start;
+    width: calc(100vw - (var(--pad) * 4)) !important;
+    max-width: calc(100vw - (var(--pad) * 4)) !important;
+    margin-top: 78px;
+    transform: none;
+  }
+
+  .migrar-figure-1 {
+    display: none;
   }
 
   .hilvan-page > section {
@@ -4868,13 +4973,11 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   }
 
   .migrar-intro-figure {
+    grid-row: auto;
+    transform: none;
     width: 48px;
     margin-top: 82px;
     margin-left: 124px;
-  }
-
-  .migrar-subtitle {
-    font-size: 18px;
   }
 
   .migrar-subfooter-label,
@@ -5032,6 +5135,18 @@ h3,
 }
 
 @media (max-width: 900px) {
+  .migrar-subtitle {
+    width: 100% !important;
+    max-width: 433px !important;
+    font-size: 18px !important;
+  }
+
+  .migrar-hero-intro {
+    justify-self: start;
+    width: calc(100vw - (var(--pad) * 4)) !important;
+    max-width: calc(100vw - (var(--pad) * 4)) !important;
+  }
+
   .savia-subfooter-title,
   .savia-subfooter-label,
   .savia-subfooter-name {
