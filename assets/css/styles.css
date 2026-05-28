@@ -1852,6 +1852,18 @@ html[lang="es"] .savia-graphic-card {
   display: block;
 }
 
+.encanto-board-image-mobile {
+  display: none !important;
+}
+
+.encanto-moodboard-mobile-composite,
+.moodboard-mobile-mask,
+.encanto-moodboard-mobile-collage,
+.mobile-collage-piece,
+.mobile-mood-word {
+  display: none;
+}
+
 .encanto-moodboard-reveal {
   --photo-scale: 1.12;
   --photo-start-scale: 1.09;
@@ -1908,6 +1920,10 @@ html[lang="es"] .savia-graphic-card {
 
 .encanto-collection-section .encanto-collection-frame {
   justify-self: start;
+}
+
+.encanto-collection-mobile {
+  display: none !important;
 }
 
 .collection-piece-stage {
@@ -2052,6 +2068,49 @@ html[lang="es"] .savia-graphic-card {
 }
 
 .invitation-lightbox.is-visible img {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.collection-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 230;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: clamp(20px, 4vw, 68px);
+  background: rgba(255, 255, 255, 0.97);
+  cursor: zoom-out;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 520ms ease;
+}
+
+.collection-lightbox.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.collection-lightbox[hidden] {
+  display: none;
+}
+
+.collection-lightbox img {
+  max-width: min(92vw, 1400px);
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.collection-lightbox.is-visible img {
   opacity: 1;
   transform: translateY(0);
 }
@@ -4271,16 +4330,34 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
     grid-column: 1 / -1;
   }
 
-  .encanto-project-subfooter {
+  .encanto-invitation-layout {
     grid-template-columns: 1fr;
     row-gap: 18px;
   }
 
+  .encanto-project-subfooter {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    row-gap: 0;
+    margin-top: 46px;
+  }
+
   .encanto-project-subfooter p:first-child,
   .encanto-project-subfooter p:last-child {
-    grid-column: 1 / -1;
+    font-size: 13px !important;
+    font-weight: 300 !important;
+    line-height: 1;
+  }
+
+  .encanto-project-subfooter p:first-child {
+    grid-column: 1 / span 2;
     justify-self: start;
     text-align: left;
+  }
+
+  .encanto-project-subfooter p:last-child {
+    grid-column: 3 / -1;
+    justify-self: end;
+    text-align: right;
   }
 
   .savia-page h1 {
@@ -4418,9 +4495,39 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   }
 
   .encanto-moodboard-reveal {
-    width: 100vw;
-    margin-inline: calc(var(--pad) * -1);
+    --photo-scale: 1;
+    --photo-start-scale: 1;
+    --moodboard-center-shift: 0px;
+    width: 100%;
+    height: auto;
+    margin-inline: 0;
     overflow: hidden;
+    aspect-ratio: auto;
+    background: #000000;
+  }
+
+  .encanto-moodboard-reveal > img,
+  .encanto-moodboard-reveal .mood-word {
+    display: none;
+  }
+
+  .encanto-moodboard-mobile-collage {
+    display: none !important;
+  }
+
+  .encanto-moodboard-mobile-composite {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: 1;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    object-fit: contain !important;
+    transform: none !important;
   }
 
   .encanto-section-heading h2,
@@ -4428,9 +4535,55 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
     font-size: 25px;
   }
 
+  .encanto-fashion-subte > .encanto-board-image-desktop,
+  .encanto-fashion-edinburgh > .encanto-board-image-desktop,
+  .encanto-secret-shorts > .encanto-board-image-desktop {
+    display: none !important;
+  }
+
+  .encanto-fashion-subte > .encanto-board-image-mobile,
+  .encanto-fashion-edinburgh > .encanto-board-image-mobile,
+  .encanto-secret-shorts > .encanto-board-image-mobile {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+  }
+
   .encanto-collection-frame {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .encanto-collection-section .encanto-collection-frame {
+    display: none;
+  }
+
+  .encanto-collection-mobile {
+    display: block !important;
+    grid-column: 1 / -1;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .encanto-collection-mobile img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .collection-mobile-hotspot {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--w);
+    height: var(--h);
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: zoom-in;
   }
 
   .collection-piece-preview {
