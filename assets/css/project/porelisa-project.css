@@ -653,9 +653,12 @@ main {
   grid-column: 1 / span 6;
   align-self: center;
   color: #9a9a9a;
+  width: auto;
+  max-width: none;
   font-size: 14px;
   line-height: 1;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .footer-top {
@@ -1994,9 +1997,24 @@ main {
   }
 
   .site-footer {
-    flex-direction: row;
-    flex-wrap: wrap;
+    row-gap: 8px;
     align-items: center;
+    font-size: 13px;
+  }
+
+  .footer-social a,
+  .footer-rights {
+    font-size: 13px !important;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  .footer-rights {
+    grid-column: 1 / -2;
+    justify-self: start;
+    width: auto;
+    max-width: none;
+    white-space: nowrap;
   }
 }
 

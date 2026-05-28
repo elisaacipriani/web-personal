@@ -2922,6 +2922,10 @@ html[lang="es"] .savia-graphic-card {
   display: block;
 }
 
+.migrar-hero + .migrar-media-section > img {
+  clip-path: inset(4px 0 0 0);
+}
+
 .migrar-space-section {
   padding-bottom: clamp(20px, 3vw, 50px);
 }
@@ -3636,9 +3640,10 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 5fr 7fr;
-  gap: var(--gutter);
+  row-gap: clamp(28px, 4vw, 56px);
+  column-gap: var(--gutter);
   align-items: start;
-  padding-block: clamp(16px, 2vw, 28px);
+  padding-block: clamp(38px, 5vw, 74px);
   border-top: 0;
 }
 
@@ -3652,16 +3657,21 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
 }
 
 .diary-entry img {
-  grid-column: 1;
-  justify-self: start;
+  grid-column: 1 / -1;
+  justify-self: center;
   display: block;
   width: min(330px, 100%);
   max-width: 100%;
   height: auto;
 }
 
+.diary-entry:nth-child(4) img {
+  transform: translateX(18px);
+}
+
 .diary-entry figcaption {
-  grid-column: 2;
+  grid-column: 1 / -1;
+  justify-self: center;
   width: min(433px, 100%);
   max-width: 433px;
   font-size: 16px;
@@ -4193,7 +4203,7 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   .contact-section {
     min-height: auto;
     row-gap: 34px;
-    padding-block: 96px 54px;
+    padding-block: 38px 54px;
   }
 
   .contact-intro {
@@ -4201,24 +4211,47 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   }
 
   .contact-copy {
-    font-size: 16px;
-    width: 100%;
-    max-width: 100%;
+    justify-self: start;
+    width: min(240px, 58vw);
+    max-width: min(240px, 58vw);
+    font-size: 12px !important;
+    line-height: 1.08;
   }
 
   .contact-details {
     align-self: start;
-    justify-items: start;
-    gap: 18px;
-    margin-top: 74px;
+    position: relative;
+    justify-items: stretch;
+    min-height: 850px;
+    gap: 0;
+    margin-top: -180px;
   }
 
   .contact-details a,
   .contact-details a:last-child {
-    font-size: clamp(25px, 7vw, 54px);
-    line-height: 0.92;
-    white-space: normal;
-    overflow-wrap: anywhere;
+    position: absolute;
+    display: block;
+    width: auto;
+    font-size: clamp(82px, 22.5vw, 116px);
+    font-weight: 400;
+    line-height: 0.86;
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    writing-mode: sideways-rl;
+    text-orientation: mixed;
+    transform: none;
+  }
+
+  .contact-details a:first-child {
+    bottom: 0;
+    right: 2px;
+  }
+
+  .contact-details a:last-child {
+    bottom: 0;
+    right: 138px;
+    font-size: clamp(80px, 21.5vw, 112px);
   }
 
   .site-footer {
@@ -4417,8 +4450,9 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
 
   .encanto-title-image {
     align-self: center;
-    width: calc(100vw - (var(--pad) * 2)) !important;
-    max-width: calc(100vw - (var(--pad) * 2)) !important;
+    justify-self: start;
+    width: min(320px, calc(100vw - (var(--pad) * 4))) !important;
+    max-width: min(320px, calc(100vw - (var(--pad) * 4))) !important;
     height: auto;
     margin-block: auto;
   }
@@ -4737,9 +4771,12 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
     flex-direction: column;
     justify-content: center;
     grid-row: auto;
+    position: relative;
+    z-index: 2;
     width: 100%;
     min-height: 100svh;
     height: auto;
+    transform: translateY(-58px);
   }
 
   .migrar-title-block::after {
@@ -4787,7 +4824,28 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   }
 
   .migrar-figure-1 {
-    display: none;
+    display: block;
+    top: 18px;
+    right: 18px;
+    z-index: 1;
+    width: 58px;
+  }
+
+  .migrar-hero-figures {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    grid-row: auto;
+    min-height: 100svh;
+    transform: none;
+  }
+
+  .migrar-figure-2 {
+    top: calc(50svh + 118px);
+    left: auto;
+    right: 72px;
+    width: 54px;
+    transform: none;
   }
 
   .hilvan-page > section {
@@ -4975,7 +5033,7 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   .migrar-intro-figure {
     grid-row: auto;
     transform: none;
-    width: 48px;
+    width: 58px;
     margin-top: 82px;
     margin-left: 124px;
   }
@@ -4998,7 +5056,8 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
 
   .diary-entry {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 34px;
+    padding-block: 46px 56px;
   }
 
   .diary-entry img,
@@ -5012,22 +5071,34 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   }
 
   .migrar-space-figures {
-    min-height: 300px;
+    min-height: 380px;
   }
 
   .migrar-hero-figures {
     grid-row: auto;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    min-height: 100svh;
+    transform: none;
   }
 
   .migrar-figure-1 {
-    right: 24px;
-    width: 76px;
+    display: block !important;
+    position: absolute;
+    top: 22px;
+    right: 18px;
+    z-index: 4;
+    width: 102px;
+    height: 183px;
   }
 
   .migrar-figure-2 {
-    top: 24px;
-    left: 62%;
-    width: 70px;
+    top: calc(50svh + 152px);
+    right: 64px;
+    left: auto;
+    width: 86px;
+    transform: none;
   }
 
   .migrar-figure-3 {
@@ -5036,22 +5107,27 @@ html:not([lang="en"]) .migrar-mindmap-layered-es {
   }
 
   .migrar-figure-4 {
-    top: 54%;
-    right: 18px;
-    width: 44px;
-    transform: translateY(-50%);
+    position: relative;
+    grid-column: 1 / -1;
+    justify-self: end;
+    top: auto;
+    right: auto;
+    width: 86px;
+    margin-top: 54px;
+    margin-right: 48px;
+    transform: none;
   }
 
   .migrar-figure-5 {
-    top: 132px;
-    left: -18px;
-    width: 260px;
+    top: 112px;
+    left: -32px;
+    width: 220px !important;
   }
 
   .migrar-figure-6 {
-    top: 205px;
-    right: -18px;
-    width: 86px;
+    top: 258px;
+    right: 28px;
+    width: 104px !important;
   }
 }
 
@@ -5134,6 +5210,12 @@ h3,
   font-weight: 200 !important;
 }
 
+.migrar-copy-section h1,
+.migrar-video-title {
+  font-size: 18px !important;
+  line-height: 1.08;
+}
+
 @media (max-width: 900px) {
   .migrar-subtitle {
     width: 100% !important;
@@ -5157,5 +5239,66 @@ h3,
 
   .savia-subfooter-title {
     transform: translateY(-46px);
+  }
+
+  .savia-page h1,
+  .savia-configurator-title {
+    font-size: 18px !important;
+    line-height: 1.08;
+  }
+
+  .encanto-section-heading h2,
+  .encanto-section-heading p {
+    font-size: 18px !important;
+    line-height: 1.08;
+  }
+
+  .migrar-mindmap-layered {
+    aspect-ratio: 4320 / 3216;
+  }
+
+  .migrar-mindmap-bar {
+    display: none;
+  }
+
+  .migrar-mindmap-words,
+  .migrar-mindmap-words-es,
+  .migrar-mindmap-words-en {
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: normal;
+  }
+
+  .migrar-subfooter {
+    align-items: end;
+    row-gap: 0;
+    padding-top: 150px;
+    padding-bottom: 18px;
+  }
+
+  .migrar-subfooter-label {
+    grid-column: 1 / span 2 !important;
+    justify-self: start;
+    align-self: end;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .migrar-subfooter-names {
+    grid-column: 3 / -1 !important;
+    justify-self: end;
+    align-self: end;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .migrar-subfooter-label,
+  .migrar-subfooter-names {
+    font-size: 13px !important;
+    font-weight: 300 !important;
+    line-height: 1;
   }
 }
