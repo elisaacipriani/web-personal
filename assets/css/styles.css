@@ -700,6 +700,12 @@ html[lang="en"] .project-index-page .project-index-category::after {
   transform-origin: 50% 32%;
 }
 
+.project-index-page .project-index-thumb.is-azul-cover img {
+  object-position: center center;
+  transform: scale(1.46);
+  transform-origin: center center;
+}
+
 .project-index-page .project-index-thumb.is-dreaming-cover img {
   object-position: 50% 100%;
 }
@@ -5217,6 +5223,96 @@ h3,
 }
 
 @media (max-width: 900px) {
+  .site-header,
+  .migrar-project .site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    gap: 9px 12px;
+    align-content: center;
+    align-items: center;
+    min-height: var(--home-header);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  .brand,
+  .migrar-project .brand {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .language-switch,
+  .migrar-project .language-switch {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .menu-toggle {
+    display: none !important;
+  }
+
+  body.mobile-menu-open::before {
+    display: none;
+  }
+
+  .mobile-menu-open {
+    overflow: auto;
+  }
+
+  .site-nav,
+  .migrar-project .site-nav {
+    position: static;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: minmax(62px, 1fr) auto minmax(62px, 1fr);
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .site-nav a,
+  .migrar-project .site-nav a {
+    grid-row: 1 !important;
+    min-width: 0;
+    font-size: 11px;
+    line-height: 1;
+    white-space: nowrap;
+    opacity: 1;
+    transform: none;
+  }
+
+  .site-nav a:nth-child(1),
+  .migrar-project .site-nav a:nth-child(1) {
+    grid-column: 1 !important;
+    justify-self: start !important;
+    text-align: left !important;
+  }
+
+  .site-nav a:nth-child(2),
+  .migrar-project .site-nav a:nth-child(2) {
+    grid-column: 2 !important;
+    justify-self: center !important;
+    text-align: center !important;
+  }
+
+  .site-nav a:nth-child(3),
+  .migrar-project .site-nav a:nth-child(3) {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    text-align: right !important;
+  }
+
   .migrar-subtitle {
     width: 100% !important;
     max-width: 433px !important;

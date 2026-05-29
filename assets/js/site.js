@@ -56,35 +56,7 @@ function setupPageTransitions() {
 }
 
 function setupMobileMenu() {
-  document.querySelectorAll(".site-header").forEach((header) => {
-    const nav = header.querySelector(".site-nav");
-
-    if (!nav || header.querySelector(".menu-toggle")) {
-      return;
-    }
-
-    const button = document.createElement("button");
-    button.className = "menu-toggle";
-    button.type = "button";
-    button.setAttribute("aria-label", "Abrir menú");
-    button.setAttribute("aria-expanded", "false");
-    button.innerHTML = "<span></span><span></span>";
-    header.insertBefore(button, nav);
-
-    button.addEventListener("click", () => {
-      const isOpen = document.body.classList.toggle("mobile-menu-open");
-      button.setAttribute("aria-expanded", String(isOpen));
-      button.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
-    });
-
-    nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        document.body.classList.remove("mobile-menu-open");
-        button.setAttribute("aria-expanded", "false");
-        button.setAttribute("aria-label", "Abrir menú");
-      });
-    });
-  });
+  document.body.classList.remove("mobile-menu-open");
 }
 
 function setupTopLinks() {
